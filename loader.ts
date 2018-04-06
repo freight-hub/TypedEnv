@@ -17,7 +17,11 @@ export type EnvValues = {
 
 function extractFromEnvObject (prefix: string, props: Array<string>, envObject: EnvObject) {
     return props.reduce((mappedProperties: EnvObject, property: string) => {
-        mappedProperties[property] = envObject[`${prefix}_${property}`]
+        if (prefix) {
+            mappedProperties[property] = envObject[`${prefix}_${property}`]
+        } else {
+            mappedProperties[property] = envObject[property]
+        }
 
         return mappedProperties
     }, {})
