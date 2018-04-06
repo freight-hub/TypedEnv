@@ -4,7 +4,7 @@ import * as deepFreeze from 'deep-freeze'
 
 export * from 'io-ts'
 
-export const envGroup = (prefix: string, props: t.Props): any => t.strict(props, prefix)
+export const envGroup = (props: t.Props, prefix?: string): any => t.strict(props, prefix || '')
 export const envSchema = (props: t.Props): any => t.readonly(t.strict(props, 'ENV'), 'ENV')
 
 export type EnvObject = {
@@ -17,7 +17,7 @@ export type EnvValues = {
 
 function extractFromEnvObject (prefix: string, props: Array<string>, envObject: EnvObject) {
     return props.reduce((mappedProperties: EnvObject, property: string) => {
-        if (prefix) {
+        if (prefix.length > 0) {
             mappedProperties[property] = envObject[`${prefix}_${property}`]
         } else {
             mappedProperties[property] = envObject[property]
