@@ -1,4 +1,4 @@
-TypedEnv
+typed-env
 ========
 
 Enforceable environment variable contracts at runtime. Use this library to make sure all the environment variables used in a project are valid.
@@ -9,7 +9,7 @@ Usage
 
 To use the library, first declare a schema that consists of groups. A group is a set of related environment variables that typically share a common prefix. Groups are created using `envGroup` function that accepts a dictionary which contains variable names and their types, e.g.:
 
-    import * as typedEnv from '@freighthub/TypedEnv'
+    import * as typedEnv from '@freighthub/typed-env'
 
     const statsd = typedEnv.envGroup({
         HOST: NonEmptyString,
@@ -32,7 +32,7 @@ If any variables are missing or don't pass type checking, an exception will occu
 Types
 =====
 
-TypedEnv provides the following schema types:
+typed-env provides the following schema types:
 
 * Number - any number
 * Integer - integer number
@@ -43,7 +43,7 @@ TypedEnv provides the following schema types:
 Example
 =======
 
-    import * as typedEnv from '@freighthub/TypedEnv'
+    import * as typedEnv from '@freighthub/typed-env'
 
     const schema = typedEnv.envSchema({
         elasticSearch: typedEnv.envGroup({

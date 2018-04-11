@@ -1,5 +1,5 @@
 {
-  "name": "@freighthub/TypedEnv",
+  "name": "@freighthub/typed-env",
   "version": "0.0.1",
   "description": "Enforceable environment variable contracts at runtime",
   "author": "FreightHub GmbH",
