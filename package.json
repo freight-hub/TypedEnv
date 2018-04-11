@@ -1,0 +1,72 @@
+{
+  "name": "@freighthub/TypedEnv",
+  "version": "0.0.1",
+  "description": "Enforceable environment variable contracts at runtime",
+  "author": "FreightHub GmbH",
+  "main": "dist/src/index.js",
+  "typings": "dist/src/index.d.ts",
+  "private": false,
+  "engines": {
+    "node": ">=9.0.0"
+  },
+  "scripts": {
+    "build": "tsc --rootDir ./ -p tsconfig.json",
+    "build:test": "yarn clean && tsc --rootDir ./ -p tsconfig.test.json",
+    "build:watch": "tsc -w",
+    "circular": "madge --circular dist/",
+    "complexity": "./node_modules/.bin/ts-complexity --max-complexity=20  --pattern './{src}/**/*.ts'",
+    "clean": "rm -fr dist",
+    "coverage": "jest --coverage --no-cache",
+    "coverage:watch": "yarn coverage --watch",
+    "lint": "tslint -p .",
+    "prepare": "yarn build",
+    "publish:package": "node ./scripts/publish",
+    "postpublish": "PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git tag $PACKAGE_VERSION && git push --tags",
+    "prebuild": "yarn clean",
+    "pretest": "yarn lint && yarn build:test",
+    "release": "npm --no-git-tag-version version",
+    "test": "jest",
+    "test:watch": "yarn test --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freight-hub/TypedEnv.git"
+  },
+  "dependencies": {
+    "@types/deep-freeze": "^0.1.1",
+    "@types/valid-url": "^1.0.2",
+    "deep-freeze": "^0.0.1",
+    "io-ts": "^1.0.5",
+    "valid-url": "^1.0.9"
+  },
+  "devDependencies": {
+    "@types/jest": "^22.1.4",
+    "@types/node": "^9.4.6",
+    "jest": "~22.4.2",
+    "madge": "^3.0.1",
+    "ts-complexity": "0.0.3",
+    "ts-jest": "^22.4.1",
+    "tslint": "^5.9.1",
+    "tslint-config-standard": "^7.0.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}"
+    ],
+    "coverageReporters": [
+      "text",
+      "html"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
+  }
+}
