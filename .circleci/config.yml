@@ -1,0 +1,91 @@
+version: 2
+jobs:
+    build:
+        working_directory: ~/TypedEnv
+        docker:
+        - image: circleci/node:9.7
+        steps:
+        - checkout
+        - restore_cache:
+            key: v0-install-and-build-cache-{{ .Revision }}
+        - run:
+            name: Install dependencies
+            command: yarn install --pure-lockfile
+        - run:
+            name: Build project
+            command: yarn build:test
+        - save_cache:
+            key: v0-install-and-build-cache-{{ .Revision }}
+            paths:
+                - dist
+                - node_modules
+        - run:
+            name: Clean node_modules, test for prod
+            command: rm -rf node_modules
+        - run:
+            name: Install node_modules, test for prod
+            command: yarn install --frozen-lockfile
+        - run:
+            name: Ensure build for prod works
+            command: yarn build
+        - run:
+            name: .only check
+            command: |
+              if grep -RF --include=*.ts \.only test; then
+                exit 1
+              else
+                exit 0
+              fi
+    test:
+        working_directory: ~/TypedEnv
+        docker:
+        - image: circleci/node:9.7
+        steps:
+        - checkout
+        - restore_cache:
+            key: v0-install-and-build-cache-{{ .Revision }}
+        - run:
+            name: Test for circular dependencies
+            command: yarn circular
+        - run:
+            name: Check code correctness
+            command: yarn lint
+        - run:
+            name: Generate code coverage
+            command: yarn coverage
+    publish:
+        working_directory: ~/TypedEnv
+        docker:
+        - image: circleci/node:9.7
+        steps:
+        - checkout
+        - restore_cache:
+            key: v0-install-and-build-cache-{{ .Revision }}
+        - add_ssh_keys:
+            fingerprints:
+              - "f6:49:e9:d0:f7:72:5a:10:e3:da:f9:94:c8:68:91:1f"
+        - run:
+            name: Set git user.
+            command: |
+              git config user.email devops@freighthub.com
+              git config user.name FreightBot
+              mkdir -p ~/.ssh
+              ssh-keyscan github.com >> ~/.ssh/known_hosts
+        - run:
+            name: Publish to NPM
+            command: yarn publish:package
+workflows:
+    version: 2
+    build_test:
+        jobs:
+        - build
+        - test:
+            requires:
+                - build
+#        - publish:
+#            requires:
+#                - test
+#            filters:
+#                branches:
+#                    only:
+#                        - master
