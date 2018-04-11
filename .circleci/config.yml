@@ -82,10 +82,10 @@ workflows:
         - test:
             requires:
                 - build
-       - publish:
+        - publish:
            requires:
-               - test
+                - test
            filters:
-               branches:
-                   only:
-                       - master
+                branches:
+                    only:
+                        - master
