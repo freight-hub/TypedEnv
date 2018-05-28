@@ -11,9 +11,9 @@ describe('loader', () => {
         }, '')
     })
 
-    describe('hydrateFromEnv', () => {
+    describe('LoadFromEnv', () => {
         it('should fill values from env object', () => {
-            const env = loader.hydrateFrom({
+            const env = loader.loadFrom({
                 FOO_BAR: 'test',
                 BAZ: 'test2',
             }, schema)

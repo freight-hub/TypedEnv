@@ -27,7 +27,7 @@ function extractFromEnvObject (prefix: string, props: Array<string>, envObject: 
     }, {})
 }
 
-export function hydrateFrom(envObject: EnvObject, schema: t.ReadonlyType<any, any, any>) {
+export function loadFrom(envObject: EnvObject, schema: t.ReadonlyType<any, any, any>) {
     const schemaProperties = schema.type.props
     const envValues = Object.keys(schemaProperties).reduce((envValues: EnvValues, schemaKey: string) => {
         const group: t.StrictType<any, any, any> = schemaProperties[schemaKey]
@@ -43,4 +43,4 @@ export function hydrateFrom(envObject: EnvObject, schema: t.ReadonlyType<any, an
     return deepFreeze(result.value)
 }
 
-export const hydrateFromEnv = (schema: t.ReadonlyType<any, object>) => hydrateFrom(process.env, schema)
+export const loadFromEnv = (schema: t.ReadonlyType<any, object>) => loadFrom(process.env, schema)

@@ -37,9 +37,9 @@ The schema is then created using `envSchema` function that accepts a dictionary
 of groups.
 
 To validate environment variables, make sure they're set (use `dotenv.config()`
-to load .env if required). Then use hydrateFromEnv as follows:
+to load .env if required). Then use loadFromEnv as follows:
 
-    const env = typedEnv.hydrateFromEnv(schema)
+    const env = typedEnv.loadFromEnv(schema)
 
 If any variables are missing or don't pass type checking, an exception will occur.
 
@@ -65,5 +65,5 @@ Example
         }, 'ELASTICSEARCH'),
     })
 
-    const env = typedEnv.hydrateFromEnv(schema)
+    const env = typedEnv.loadFromEnv(schema)
     console.log(env.elasticSearch.URL)
