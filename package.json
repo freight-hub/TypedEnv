@@ -40,7 +40,7 @@
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
-    "@types/jest": "^22.1.4",
+    "@types/jest": "^22.2.3",
     "@types/node": "^9.4.6",
     "jest": "~22.4.2",
     "madge": "^3.1.1",
