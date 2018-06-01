@@ -43,7 +43,7 @@
     "@types/jest": "^22.1.4",
     "@types/node": "^9.4.6",
     "jest": "~22.4.2",
-    "madge": "^3.0.1",
+    "madge": "^3.1.1",
     "semver-compare": "^1.0.0",
     "ts-complexity": "0.0.3",
     "ts-jest": "^22.4.1",
