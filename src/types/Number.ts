@@ -10,4 +10,4 @@ export const Number = new t.Type<number, string, string>(
     String
 )
 
-export type NumberType = TypeOf<typeof Number>
+export type NumberType = t.TypeOf<typeof Number>

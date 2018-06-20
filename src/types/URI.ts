@@ -5,4 +5,4 @@ export const URI = t.refinement(t.string, (s: string) => {
     return validUrl.isUri(s) !== undefined
 }, 'URI')
 
-export type URIType = TypeOf<typeof URI>
+export type URIType = t.TypeOf<typeof URI>
