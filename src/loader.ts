@@ -4,8 +4,8 @@ import * as deepFreeze from 'deep-freeze'
 
 export * from 'io-ts'
 
-export const envGroup = (props: t.Props, prefix?: string): any => t.type(props, prefix || '')
-export const envSchema = (props: t.Props): any => t.readonly(t.type(props, 'ENV'), 'ENV')
+export const envGroup = (props: t.Props, prefix?: string): any => t.exact(t.type(props), prefix || '')
+export const envSchema = (props: t.Props): any => t.readonly(t.exact(t.type(props), 'ENV'), 'ENV')
 
 export type EnvObject = {
     [key: string]: any
@@ -27,12 +27,12 @@ function extractFromEnvObject(prefix: string, props: Array<string>, envObject: E
     }, {})
 }
 
-export function loadFrom(envObject: EnvObject, schema: t.ReadonlyType<any, any, any>) {
-    const schemaProperties = schema.type.props
+export function loadFrom(envObject: EnvObject, schema: t.ReadonlyType<t.ExactType<t.InterfaceType<any>>, any, any>) {
+    const schemaProperties = schema.type.type.props
     const envValues = Object.keys(schemaProperties).reduce((envValues: EnvValues, schemaKey: string) => {
-        const group: t.StrictType<any, any, any> = schemaProperties[schemaKey]
+        const group: t.ExactType<t.InterfaceType<any>, any, any> = schemaProperties[schemaKey]
 
-        envValues[schemaKey] = extractFromEnvObject(group.name, Object.keys(group.props), envObject)
+        envValues[schemaKey] = extractFromEnvObject(group.name, Object.keys(group.type.props), envObject)
 
         return envValues
     }, {})
