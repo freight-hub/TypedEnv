@@ -1,5 +1,5 @@
 import { ThrowReporter } from 'io-ts/lib/ThrowReporter'
-import * as types from './types'
+import * as types from './index'
 
 describe('types', () => {
     describe('NonEmptyString', () => {

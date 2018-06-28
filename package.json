@@ -1,6 +1,6 @@
 {
   "name": "@freighthub/typed-env",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Enforceable environment variable contracts at runtime",
   "author": "FreightHub GmbH",
   "main": "dist/src/index.js",
@@ -56,7 +56,8 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "collectCoverageFrom": [
-      "src/**/*.{ts,tsx}"
+      "src/**/*.{ts,tsx}",
+      "!src/index.ts"
     ],
     "coverageReporters": [
       "text",
