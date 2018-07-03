@@ -1,6 +1,6 @@
 {
   "name": "@freighthub/typed-env",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Enforceable environment variable contracts at runtime",
   "author": "FreightHub GmbH",
   "main": "dist/src/index.js",
@@ -12,7 +12,7 @@
   "scripts": {
     "build": "tsc --rootDir ./ -p tsconfig.json",
     "build:test": "yarn clean && tsc --rootDir ./ -p tsconfig.test.json",
-    "build:watch": "tsc -w",
+    "build:watch": "tsc --rootDir ./ -w",
     "circular": "madge --circular dist/",
     "complexity": "./node_modules/.bin/ts-complexity --max-complexity=20  --pattern './{src}/**/*.ts'",
     "clean": "rm -fr dist",
