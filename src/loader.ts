@@ -4,8 +4,8 @@ import * as deepFreeze from 'deep-freeze'
 
 export * from 'io-ts'
 
-export const envGroup = (props: t.Props, prefix?: string): any => t.exact(t.type(props), prefix || '')
-export const envSchema = (props: t.Props): any => t.readonly(t.exact(t.type(props), 'ENV'), 'ENV')
+export const envGroup = <P extends t.Props> (props: P, prefix?: string) => t.exact(t.type(props), prefix || '')
+export const envSchema = <P extends t.Props> (props: P) => t.readonly(t.exact(t.type(props), 'ENV'), 'ENV')
 
 export type EnvObject = {
     [key: string]: any
@@ -15,7 +15,7 @@ export type EnvValues = {
     [key: string]: EnvObject
 }
 
-function extractFromEnvObject(prefix: string, props: Array<string>, envObject: EnvObject) {
+function extractFromEnvObject (prefix: string, props: Array<string>, envObject: EnvObject) {
     return props.reduce((mappedProperties: EnvObject, property: string) => {
         if (prefix.length > 0) {
             mappedProperties[property] = envObject[`${prefix}_${property}`]
@@ -27,7 +27,7 @@ function extractFromEnvObject(prefix: string, props: Array<string>, envObject: E
     }, {})
 }
 
-export function loadFrom(envObject: EnvObject, schema: t.ReadonlyType<t.ExactType<t.InterfaceType<any>>, any, any>) {
+export function loadFrom (envObject: EnvObject, schema: t.ReadonlyType<t.ExactType<t.InterfaceType<any>>, any, any>) {
     const schemaProperties = schema.type.type.props
     const envValues = Object.keys(schemaProperties).reduce((envValues: EnvValues, schemaKey: string) => {
         const group: t.ExactType<t.InterfaceType<any>, any, any> = schemaProperties[schemaKey]
@@ -43,4 +43,4 @@ export function loadFrom(envObject: EnvObject, schema: t.ReadonlyType<t.ExactTyp
     return deepFreeze(result.value)
 }
 
-export const loadFromEnv = (schema: t.ReadonlyType<any, object>) => loadFrom(process.env, schema)
+export const loadFromEnv = <P> (schema: t.ReadonlyType<any, P>) => <P> loadFrom(process.env, schema)
