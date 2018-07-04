@@ -33,7 +33,7 @@ describe('types', () => {
     describe('PortNumber', () => {
         it('should decode valid port numbers', () => {
             const result = types.PortNumber.decode('80').value
-            expect(result).toEqual(80)
+            expect(result).toEqual('80')
         })
 
         it('should fail to decode invalid port numbers', () => {
