@@ -36,7 +36,7 @@
     "@types/deep-freeze": "^0.1.1",
     "@types/valid-url": "^1.0.2",
     "deep-freeze": "^0.0.1",
-    "io-ts": "^1.1.5",
+    "io-ts": "^1.2.0",
     "typescript": "2.9.2",
     "valid-url": "^1.0.9"
   },
