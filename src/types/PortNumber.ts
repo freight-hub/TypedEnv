@@ -1,9 +1,9 @@
 import * as t from 'io-ts'
 
-import { Number } from './Number'
+export const PortNumber = t.refinement(t.string, (p: string) => {
+    const PORT_REGEX = new RegExp(/^([1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$/)
 
-export const PortNumber = t.refinement(Number, (p: Number) => {
-    return t.Integer.is(p) && p > 0 && p < 65536
+    return PORT_REGEX.test(p)
 }, 'PortNumber')
 
 export type PortNumberType = t.TypeOf<typeof PortNumber>
