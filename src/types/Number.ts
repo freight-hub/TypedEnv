@@ -1,13 +1,13 @@
 import * as t from 'io-ts'
 
-export const Number = new t.Type<number, number, string>(
+export const Number = new t.Type<string, string, string>(
     'Number',
-    t.number.is,
+    t.string.is,
     (s, c) => {
         const n = parseFloat(s)
-        return isNaN(n) ? t.failure(s, c) : t.success(n)
+        return isNaN(n) ? t.failure(s, c) : t.success(s)
     },
-    t.identity
+    String,
 )
 
 export type NumberType = t.TypeOf<typeof Number>
