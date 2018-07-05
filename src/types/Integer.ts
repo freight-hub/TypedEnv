@@ -4,7 +4,7 @@ export const Integer = new t.Type<string, string, string>(
     'Integer',
     t.string.is,
     (s, c) => {
-        return parseFloat(s) !== parseInt(s, 10) ? t.failure(s, c) : t.success(s)
+        return s !== String(parseInt(s)) && parseFloat(s) !== parseInt(s, 10) ? t.failure(s, c) : t.success(s)
     },
     String,
 )
