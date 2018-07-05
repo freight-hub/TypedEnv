@@ -8,7 +8,7 @@ describe('PortNumber', () => {
         dataProvider.forEach(port => {
             const result = types.PortNumber.decode(port).value
             expect(result).toEqual(port)
-        }
+        })
     })
 
     it('should fail to decode invalid port numbers', () => {
