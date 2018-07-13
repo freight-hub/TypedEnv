@@ -43,7 +43,7 @@
   "devDependencies": {
     "@types/jest": "^23.1.5",
     "@types/node": "^10.5.2",
-    "jest": "~23.4.0",
+    "jest": "~23.4.1",
     "madge": "^3.2.0",
     "semver-compare": "^1.0.0",
     "ts-complexity": "0.0.3",
