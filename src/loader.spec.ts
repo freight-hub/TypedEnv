@@ -5,7 +5,7 @@ describe('loader', () => {
     const schema = loader.envSchema({
         foo: loader.envGroup({
             BAR: types.NonEmptyString,
-        }, 'FOO')
+        }, 'FOO'),
         baz: loader.envGroup({
             BAZ: types.NonEmptyString,
         }, '')
