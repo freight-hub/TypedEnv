@@ -1,6 +1,8 @@
 import * as t from 'io-ts'
 
-export const Integer = new t.Type<string, string, string>(
+export interface Integer extends t.Type<string, string, t.mixed> {}
+
+export const Integer: Integer = new t.Type<string, string, string>(
     'Integer',
     t.string.is,
     (s, c) => {
