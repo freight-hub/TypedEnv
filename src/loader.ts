@@ -1,11 +1,25 @@
 import * as t from 'io-ts'
-import { ThrowReporter } from 'io-ts/lib/ThrowReporter'
 import * as deepFreeze from 'deep-freeze'
 
 export * from 'io-ts'
 
-export const envGroup = <P extends t.Props> (props: P, prefix?: string) => t.exact(t.type(props), prefix || '')
-export const envSchema = <P extends t.Props> (props: P) => t.readonly(t.exact(t.type(props), 'ENV'), 'ENV')
+export interface ExactInterface<P extends t.Props>
+    extends t.ExactType<
+        t.InterfaceType<P, t.TypeOfProps<P>, t.OutputOfProps<P>, t.mixed>,
+        t.TypeOfProps<P>,
+        t.OutputOfProps<P>,
+        t.mixed
+        > {}
+
+export interface EnvGroup<P extends t.Props> extends ExactInterface<P> {}
+
+export type EnvGroups = { [key: string]: EnvGroup<any> }
+
+export interface EnvSchema<P extends EnvGroups>
+    extends t.ReadonlyType<ExactInterface<P>, Readonly<t.TypeOfProps<P>>, Readonly<t.OutputOfProps<P>>, t.mixed> {}
+
+export const envGroup = <P extends t.Props> (props: P, prefix?: string): EnvGroup<P> => t.exact(t.type(props), prefix || '')
+export const envSchema = <P extends EnvGroups> (props: P): EnvSchema<P> => t.readonly(t.exact(t.type(props), 'ENV'), 'ENV')
 
 export type EnvObject = {
     [key: string]: any
@@ -27,20 +41,19 @@ function extractFromEnvObject (prefix: string, props: Array<string>, envObject: 
     }, {})
 }
 
-export function loadFrom (envObject: EnvObject, schema: t.ReadonlyType<t.ExactType<t.InterfaceType<any>>, any, any>) {
+export function loadFrom<P extends EnvGroups>(envObject: EnvObject, schema: EnvSchema<P>): Readonly<t.TypeOfProps<P>> {
     const schemaProperties = schema.type.type.props
     const envValues = Object.keys(schemaProperties).reduce((envValues: EnvValues, schemaKey: string) => {
-        const group: t.ExactType<t.InterfaceType<any>, any, any> = schemaProperties[schemaKey]
+        const group = schemaProperties[schemaKey]
 
         envValues[schemaKey] = extractFromEnvObject(group.name, Object.keys(group.type.props), envObject)
 
         return envValues
     }, {})
 
-    const result = schema.decode(envValues)
-    ThrowReporter.report(result)
-
-    return deepFreeze(result.value)
+    return schema.decode(envValues).fold(errors => {
+        throw new Error(errors.join('\n'))
+    }, value => deepFreeze(value))
 }
 
-export const loadFromEnv = <P> (schema: t.ReadonlyType<any, P>) => <P> loadFrom(process.env, schema)
+export const loadFromEnv = <P extends EnvGroups> (schema: EnvSchema<P>): t.TypeOfProps<P> => loadFrom(process.env, schema)
