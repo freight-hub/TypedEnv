@@ -1,3 +1,4 @@
+export * from './Boolean'
 export * from './Integer'
 export * from './NonEmptyString'
 export * from './Number'
