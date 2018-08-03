@@ -13,37 +13,32 @@ describe('Boolean', () => {
 
     it('should fail to decode invalid booleans', () => {
         expect(() => {
-            const result = types.PortNumber.decode('0')
+            const result = types.Boolean.decode('0')
             ThrowReporter.report(result)
         }).toThrow()
 
         expect(() => {
-            const result = types.PortNumber.decode('FALSE')
+            const result = types.Boolean.decode('FALSE')
             ThrowReporter.report(result)
         }).toThrow()
 
         expect(() => {
-            const result = types.PortNumber.decode('TRUE')
+            const result = types.Boolean.decode('TRUE')
             ThrowReporter.report(result)
         }).toThrow()
 
         expect(() => {
-            const result = types.PortNumber.decode('')
+            const result = types.Boolean.decode('boolean')
             ThrowReporter.report(result)
         }).toThrow()
 
         expect(() => {
-            const result = types.PortNumber.decode('boolean')
+            const result = types.Boolean.decode('')
             ThrowReporter.report(result)
         }).toThrow()
 
         expect(() => {
-            const result = types.PortNumber.decode('')
-            ThrowReporter.report(result)
-        }).toThrow()
-
-        expect(() => {
-            const result = types.PortNumber.decode('null')
+            const result = types.Boolean.decode('null')
             ThrowReporter.report(result)
         }).toThrow()
     })
