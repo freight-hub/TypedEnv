@@ -6,7 +6,7 @@ export const Boolean: Boolean = new t.Type<string, string, string>(
     'Boolean',
     t.string.is,
     (s, c) => {
-        return (s === 'true' || s === 'false')  ? t.failure(s, c) : t.success(s)
+        return (s === 'true' || s === 'false')  ? t.success(s) : t.failure(s, c)
     },
     String,
 )
