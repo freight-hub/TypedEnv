@@ -53,6 +53,7 @@ typed-env provides the following schema types:
 * PortNumber - integer number between 1 and 65535
 * NonEmptyString - non-empty string of any length
 * URI - URI as checked by valid-url
+* Boolean - true or false
 
 Example
 =======
