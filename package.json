@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
-    "@types/node": "^10.5.6",
+    "@types/node": "^10.5.7",
     "jest": "~23.4.2",
     "madge": "^3.2.0",
     "semver-compare": "^1.0.0",
