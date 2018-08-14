@@ -24,7 +24,7 @@ async function publish () {
   if (await shouldPublish()) {
     console.log('Start package publishing process...')
 
-    await exec('npm publish --access=restricted')
+    await exec('npm publish --access=public')
 
     console.log('Package publishing process finished!')
 
