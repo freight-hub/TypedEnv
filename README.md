@@ -21,7 +21,6 @@ contains variable names and their types, e.g.:
         HOST: NonEmptyString,
         PORT: PortNumber,
         PREFIX: NonEmptyString,
-        LOG_LEVEL: UnionOf(['debug','info', 'error']),
     }, 'STATSD')
 
     const schema = typedEnv.envSchema({
