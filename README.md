@@ -21,6 +21,7 @@ contains variable names and their types, e.g.:
         HOST: NonEmptyString,
         PORT: PortNumber,
         PREFIX: NonEmptyString,
+        LOG_LEVEL: UnionOf(['debug','info', 'error']),
     }, 'STATSD')
 
     const schema = typedEnv.envSchema({
@@ -54,6 +55,7 @@ typed-env provides the following schema types:
 * NonEmptyString - non-empty string of any length
 * URI - URI as checked by valid-url
 * Boolean - true or false
+* Union - a collection of string literals to resctrict a variable's possible value
 
 Example
 =======
