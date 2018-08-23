@@ -25,8 +25,8 @@
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.1.tgz#a4319aedb071d478e6f407d1c4578ec8156829cf"
 
 "@types/node@^10.7.0":
-  version "10.7.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.7.2.tgz#278042fe67d5fbe9fe98e19dcdadd237c1b0e342"
+  version "10.9.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.9.0.tgz#d2824d342b1d733e22ef169708bd254924db16bd"
 
 "@types/valid-url@^1.0.2":
   version "1.0.2"
