@@ -25,8 +25,8 @@
   resolved "https://registry.yarnpkg.com/@types/deep-freeze/-/deep-freeze-0.1.1.tgz#0e1ee6ceee06f51baeb663deec0bb7780bd72827"
 
 "@types/jest@^23.3.1":
-  version "23.3.12"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.12.tgz#7e0ced251fa94c3bc2d1023d4b84b2992fa06376"
+  version "23.3.13"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.13.tgz#c81484b6f4ca007bb09887ed15ecb3286d58f928"
 
 "@types/node@^10.7.0":
   version "10.12.19"
