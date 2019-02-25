@@ -29,8 +29,8 @@
   resolved "https://registry.yarnpkg.com/@types/jest-diff/-/jest-diff-20.0.1.tgz#35cc15b9c4f30a18ef21852e255fdb02f6d59b89"
 
 "@types/jest@^24.0.0":
-  version "24.0.6"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.6.tgz#ba4c8c7900ce098a82ca99293cbe4192bde4f355"
+  version "24.0.7"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.7.tgz#5550f4fed43022e987d99b4e8c4d1a4d4d9f49ad"
   dependencies:
     "@types/jest-diff" "*"
 
