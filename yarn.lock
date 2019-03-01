@@ -35,8 +35,8 @@
     "@types/jest-diff" "*"
 
 "@types/node@^11.9.0":
-  version "11.9.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.9.6.tgz#c632bbcc780a1349673a6e2e9b9dfa8c369d3c74"
+  version "11.10.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.10.0.tgz#08eeb736ae678ccf9ca0922063f3a08795894ede"
 
 "@types/valid-url@^1.0.2":
   version "1.0.2"
