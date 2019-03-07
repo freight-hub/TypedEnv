@@ -35,8 +35,8 @@
     "@types/jest-diff" "*"
 
 "@types/node@^11.9.0":
-  version "11.9.5"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.9.5.tgz#011eece9d3f839a806b63973e228f85967b79ed3"
+  version "11.10.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.10.5.tgz#fbaca34086bdc118011e1f05c47688d432f2d571"
 
 "@types/valid-url@^1.0.2":
   version "1.0.2"
@@ -3488,8 +3488,8 @@ tslint-eslint-rules@^5.3.1:
     tsutils "2.8.0"
 
 tslint@^5.10.0:
-  version "5.13.0"
-  resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.13.0.tgz#239a2357c36b620d72d86744754b6fc088a25359"
+  version "5.13.1"
+  resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.13.1.tgz#fbc0541c425647a33cd9108ce4fd4cd18d7904ed"
   dependencies:
     babel-code-frame "^6.22.0"
     builtin-modules "^1.1.1"
