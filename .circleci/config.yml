@@ -73,7 +73,7 @@ jobs:
               ssh-keyscan github.com >> ~/.ssh/known_hosts
         - run:
             name: Publish to NPM
-            command: yarn publish:package
+            command: .circleci/deploy.sh
 workflows:
     version: 2
     build_test:
