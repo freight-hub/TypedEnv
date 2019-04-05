@@ -3546,9 +3546,9 @@ typescript-estree@^18.1.0:
     lodash.unescape "4.0.1"
     semver "5.5.0"
 
-typescript@3.4.1, typescript@^3.0.3, typescript@^3.2.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.4.1.tgz#b6691be11a881ffa9a05765a205cb7383f3b63c6"
+typescript@3.4.2, typescript@^3.0.3, typescript@^3.2.1:
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.4.2.tgz#9ed4e6475d906f589200193be056f5913caed481"
 
 typescript@^2.6.1:
   version "2.9.2"
