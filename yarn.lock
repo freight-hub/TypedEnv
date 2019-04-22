@@ -310,8 +310,8 @@
     "@types/jest-diff" "*"
 
 "@types/node@^11.9.0":
-  version "11.13.4"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.4.tgz#f83ec3c3e05b174b7241fadeb6688267fe5b22ca"
+  version "11.13.6"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.6.tgz#37ec75690830acb0d74ce3c6c43caab787081e85"
 
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
