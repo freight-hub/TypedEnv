@@ -347,8 +347,8 @@
     "@types/jest-diff" "*"
 
 "@types/node@^12.0.0":
-  version "12.11.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.11.2.tgz#75ba3beda30d690b89a5089ca1c6e8e386150b76"
+  version "12.11.3"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.11.3.tgz#582052915e50820b7416115386e606c27d5e399f"
 
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
