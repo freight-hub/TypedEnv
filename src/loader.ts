@@ -1,3 +1,4 @@
+import { isLeft } from 'fp-ts/lib/Either'
 import * as t from 'io-ts'
 import { ThrowReporter } from 'io-ts/lib/ThrowReporter'
 import * as deepFreeze from 'deep-freeze'
@@ -59,11 +60,11 @@ export function loadFrom<P extends EnvGroups> (envObject: EnvObject, schema: Env
 
     const result = schema.decode(envValues)
 
-    if (result.isLeft()) {
+    if (isLeft(result)) {
         throw ThrowReporter.report(result)
     }
 
-    return deepFreeze(result.value)
+    return deepFreeze(result.right)
 }
 
 export const loadFromEnv = <P extends EnvGroups> (schema: EnvSchema<P>): t.TypeOfProps<P> => loadFrom(process.env, schema)

@@ -31,7 +31,7 @@ describe('loader', () => {
         it('loads ennvars using process.env', () => {
             const schema = loader.envSchema({
                 node: loader.envGroup({
-                    ENV: types.UnionOf(['test']),
+                    ENV: types.UnionOf(['test', 'production']),
                 }, 'NODE'),
             })
 

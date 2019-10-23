@@ -1,3 +1,4 @@
+import { isRight } from 'fp-ts/lib/Either'
 import { ThrowReporter } from 'io-ts/lib/ThrowReporter'
 import * as types from './index'
 
@@ -6,8 +7,13 @@ describe('PortNumber', () => {
         const dataProvider = ['1', '80', '8080', '65535']
 
         dataProvider.forEach(port => {
-            const result = types.PortNumber.decode(port).value
-            expect(result).toEqual(port)
+            const result = types.PortNumber.decode(port)
+
+            if (isRight(result)) {
+                expect(result.right).toEqual(port)
+            } else {
+                fail('failed to decode value')
+            }
         })
     })
 
