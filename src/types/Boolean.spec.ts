@@ -1,3 +1,4 @@
+import { isRight } from 'fp-ts/lib/Either'
 import { ThrowReporter } from 'io-ts/lib/ThrowReporter'
 import * as types from './index'
 
@@ -6,8 +7,13 @@ describe('Boolean', () => {
         const dataProvider = ['false', 'true']
 
         dataProvider.forEach(bool => {
-            const result = types.Boolean.decode(bool).value
-            expect(result).toEqual(bool)
+            const result = types.Boolean.decode(bool)
+
+            if (isRight(result)) {
+                expect(result.right).toEqual(bool)
+            } else {
+                fail('failed to decode value')
+            }
         })
     })
 

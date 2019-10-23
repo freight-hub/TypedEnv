@@ -1,3 +1,4 @@
+import { isRight } from 'fp-ts/lib/Either'
 import { ThrowReporter } from 'io-ts/lib/ThrowReporter'
 import * as types from './index'
 
@@ -6,8 +7,13 @@ describe('Integer', () => {
         const dataProvider = ['100', '-100', '0']
 
         dataProvider.forEach(number => {
-            const result = types.Integer.decode(number).value
-            expect(result).toEqual(number)
+            const result = types.Integer.decode(number)
+
+            if (isRight(result)) {
+                expect(result.right).toEqual(number)
+            } else {
+                fail('failed to decode value')
+            }
         })
     })
 

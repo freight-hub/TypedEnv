@@ -1,3 +1,4 @@
+import { isRight } from 'fp-ts/lib/Either'
 import { ThrowReporter } from 'io-ts/lib/ThrowReporter'
 import * as types from './index'
 
@@ -5,17 +6,37 @@ describe('Union', () => {
     it('should decode valid union values', () => {
         const appEnvironments = types.UnionOf(['test', 'development', 'sandbox', 'production'])
 
-        const test = appEnvironments.decode('test').value
-        expect(test).toEqual('test')
+        const test = appEnvironments.decode('test')
 
-        const development = appEnvironments.decode('development').value
-        expect(development).toEqual('development')
+        if (isRight(test)) {
+            expect(test.right).toEqual('test')
+        } else {
+            fail('failed to decode value')
+        }
 
-        const sandbox = appEnvironments.decode('sandbox').value
-        expect(sandbox).toEqual('sandbox')
+        const development = appEnvironments.decode('development')
 
-        const production = appEnvironments.decode('production').value
-        expect(production).toEqual('production')
+        if (isRight(development)) {
+            expect(development.right).toEqual('development')
+        } else {
+            fail('failed to decode value')
+        }
+
+        const sandbox = appEnvironments.decode('sandbox')
+
+        if (isRight(sandbox)) {
+            expect(sandbox.right).toEqual('sandbox')
+        } else {
+            fail('failed to decode value')
+        }
+
+        const production = appEnvironments.decode('production')
+
+        if (isRight(production)) {
+            expect(production.right).toEqual('production')
+        } else {
+            fail('failed to decode value')
+        }
     })
 
     describe('should fail to decode invalid values', () => {
