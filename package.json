@@ -1,6 +1,6 @@
 {
   "name": "@freighthub/typed-env",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "Enforceable environment variable contracts at runtime",
   "author": "FreightHub GmbH",
   "main": "dist/src/index.js",
