@@ -1335,9 +1335,9 @@ form-data@~2.3.1:
     mime-types "^2.1.12"
 
 fp-ts@^2.1.1:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.2.0.tgz#7a442c6389e9b8424a5deb55eb099a8840072f4a"
-  integrity sha512-muJL9NOYluuoRezrvOyQvLAHIXrYg7u/Tc6cu4PP/Ed4TJKrm6BVSX8H1goT/4nhgP/yQ+Z4Xjjt4ijeKFX4Ng==
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.3.0.tgz#413c83752c3703b2b7ce5a727ad0cfb6d165ef52"
+  integrity sha512-Sfwvnsg2VHIdc/bwrFR9ym2QyZz7HZICBL2CWNRqDm7Alflf0oXIIL4nP7L75y2b+so0uupx1/nOPEBYJTxWQw==
 
 fragment-cache@^0.2.1:
   version "0.2.1"
