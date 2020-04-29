@@ -43,11 +43,11 @@
     "@types/jest": "^25.1.0",
     "@types/node": "^13.1.0",
     "@types/valid-url": "^1.0.2",
-    "jest": "~24.9.0",
+    "jest": "~25.5.2",
     "madge": "^3.2.0",
     "semver-compare": "^1.0.0",
     "ts-complexity": "0.0.3",
-    "ts-jest": "^24.0.2",
+    "ts-jest": "^25.3.1",
     "tslint": "^6.0.0",
     "tslint-config-standard": "^9.0.0",
     "typescript": "3.8.3"
