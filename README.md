@@ -7,7 +7,6 @@
 Use this library to make
 sure all the environment variables used in a project are valid.
 
-
 ## Usage
 
 To use the library, first declare a schema that consists of groups. A group is
@@ -30,9 +29,10 @@ const schema = typedEnv.envSchema({
 ```
 
 In the above example `statsd` group will be used to load variables
- - `STATSD_HOST`
- - `STATSD_PORT`
- - `STATSD_PREFIX`
+
+- `STATSD_HOST`
+- `STATSD_PORT`
+- `STATSD_PREFIX`
 
 The optional `STATSD` prefix is passed as the second parameter to `envGroup`.
 The schema is then created using `envSchema` function that accepts a dictionary
@@ -51,13 +51,13 @@ If any variables are missing or don't pass type checking, an exception will occu
 
 `typed-env` provides the following schema types:
 
-* `Number` - any number
-* `Integer` - integer number
-* `PortNumber` - integer number between 1 and 65535
-* `NonEmptyString` - non-empty string of any length
-* `URI` - URI as checked by valid-url
-* `Boolean` - true or false
-* `Union` - a collection of string literals to resctrict a variable's possible value
+- `Number` - any number
+- `Integer` - integer number
+- `PortNumber` - integer number between 1 and 65535
+- `NonEmptyString` - non-empty string of any length
+- `URI` - URI as checked by valid-url
+- `Boolean` - true or false
+- `Union` - a collection of string literals to resctrict a variable's possible value
 
 ## Example
 
@@ -72,4 +72,19 @@ const schema = typedEnv.envSchema({
 
 const env = typedEnv.loadFromEnv(schema)
 console.log(env.elasticSearch.URL)
+```
+
+## Infrastructure as code
+
+In case you store environment variables in code, e.g. when you are using helm, you can validate your environment variables in your test suite using `loadFromYAMLFiles`:
+
+```typescript
+import * as typedEnv from '@freighthub/typed-env'
+import { schema } from './envSchema'
+
+describe('Environment variables', () => {
+    test('all environment variables are set', () => {
+        typedEnv.loadFromYAMLFiles(['./values.yaml#/env', './secrets.yaml#/env'], schema)
+    })
+})
 ```

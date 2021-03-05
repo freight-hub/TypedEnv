@@ -36,11 +36,15 @@
     "deep-freeze": "^0.0.1",
     "fp-ts": "^2.1.1",
     "io-ts": "^2.0.1",
+    "js-yaml": "^4.0.0",
+    "lodash": "^4.17.21",
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
     "@types/deep-freeze": "^0.1.1",
     "@types/jest": "^26.0.0",
+    "@types/js-yaml": "^4.0.0",
+    "@types/lodash": "^4.14.168",
     "@types/node": "^14.0.0",
     "@types/valid-url": "^1.0.2",
     "jest": "~24.9.0",

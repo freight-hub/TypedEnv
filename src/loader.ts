@@ -2,6 +2,8 @@ import { isLeft } from 'fp-ts/lib/Either'
 import * as t from 'io-ts'
 import { ThrowReporter } from 'io-ts/lib/ThrowReporter'
 import * as deepFreeze from 'deep-freeze'
+import { EnvObject } from './EnvObject'
+import { envFromYAMLFiles } from './yaml'
 
 export * from 'io-ts'
 
@@ -28,10 +30,6 @@ export const envGroup = <P extends t.Props> (
 ): EnvGroup<P> => t.exact(t.type(props), prefix || '')
 export const envSchema = <P extends EnvGroups> (props: P): EnvSchema<P> => t.readonly(t.exact(t.type(props), 'ENV'), 'ENV')
 
-export type EnvObject = {
-    [key: string]: any
-}
-
 export type EnvValues = {
     [key: string]: EnvObject
 }
@@ -50,7 +48,7 @@ function extractFromEnvObject (prefix: string, props: Array<string>, envObject: 
 
 export function loadFrom<P extends EnvGroups> (envObject: EnvObject, schema: EnvSchema<P>): Readonly<t.TypeOfProps<P>> {
     const schemaProperties = schema.type.type.props
-    const envValues = Object.keys(schemaProperties).reduce((envValues: EnvValues, schemaKey: string) => {
+    const envValues = Object.keys(schemaProperties).reduce<EnvValues>((envValues, schemaKey) => {
         const group = schemaProperties[schemaKey]
 
         envValues[schemaKey] = extractFromEnvObject(group.name, Object.keys(group.type.props), envObject)
@@ -68,3 +66,4 @@ export function loadFrom<P extends EnvGroups> (envObject: EnvObject, schema: Env
 }
 
 export const loadFromEnv = <P extends EnvGroups> (schema: EnvSchema<P>): t.TypeOfProps<P> => loadFrom(process.env, schema)
+export const loadFromYAMLFiles = <P extends EnvGroups>(yamlFilePaths: string[], schema: EnvSchema<P>) => loadFrom(envFromYAMLFiles(yamlFilePaths), schema)

@@ -1,3 +1,4 @@
+import * as path from 'path'
 import * as loader from './loader'
 import * as types from './types'
 
@@ -40,4 +41,34 @@ describe('loader', () => {
             expect(env).toEqual({ node: { ENV: 'test' } })
         })
     })
+
+    describe('#loadFromYAMLFiles', () => {
+        it('should load env vars from YAML files', () => {
+            const schema = loader.envSchema({
+                values: loader.envGroup({
+                    A: types.NonEmptyString,
+                    B: types.NonEmptyString
+                }, 'VALUES')
+            })
+
+            const files = [
+                path.resolve(__dirname, '..', 'fixtures', 'yaml1.yaml#/env'),
+                path.resolve(__dirname, '..', 'fixtures', 'yaml2.yaml#/env'),
+            ]
+
+            const env = loader.loadFromYAMLFiles(files, schema)
+
+            expect(env).toEqual({values: {A: 'A', B: 'B'}})
+        });
+        
+        it('should throw an error when env vars are not set', () => {
+            const schema = loader.envSchema({
+                values: loader.envGroup({
+                    A: types.NonEmptyString,
+                })
+            })
+
+            expect(() => loader.loadFromYAMLFiles([], schema)).toThrowError()
+        });
+    });
 })
