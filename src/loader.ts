@@ -66,4 +66,10 @@ export function loadFrom<P extends EnvGroups> (envObject: EnvObject, schema: Env
 }
 
 export const loadFromEnv = <P extends EnvGroups> (schema: EnvSchema<P>): t.TypeOfProps<P> => loadFrom(process.env, schema)
+/**
+ * Load the environment from YAML files.
+ * @param yamlFilePaths Paths of YAML files to load. The paths support a simplified version of JSONPath, e.g. (./values.yaml#/service/env). Multiple files will be merged in sequence, the last overriding the first.
+ * @param schema The EnvGroups schema
+ * @returns EnvGroups
+ */
 export const loadFromYAMLFiles = <P extends EnvGroups>(yamlFilePaths: string[], schema: EnvSchema<P>) => loadFrom(envFromYAMLFiles(yamlFilePaths), schema)
