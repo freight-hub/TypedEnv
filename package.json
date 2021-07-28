@@ -44,7 +44,7 @@
     "@types/node": "^15.0.1",
     "@types/valid-url": "^1.0.2",
     "jest": "~24.9.0",
-    "madge": "^4.0.0",
+    "madge": "^5.0.1",
     "semver-compare": "^1.0.0",
     "ts-complexity": "0.0.3",
     "ts-jest": "^24.0.2",
