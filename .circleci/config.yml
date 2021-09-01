@@ -3,7 +3,7 @@ jobs:
     build:
         working_directory: ~/TypedEnv
         docker:
-        - image: cimg/node:16
+        - image: cimg/node:16.8
         steps:
         - checkout
         - restore_cache:
@@ -39,7 +39,7 @@ jobs:
     test:
         working_directory: ~/TypedEnv
         docker:
-        - image: cimg/node:16
+        - image: cimg/node:16.8
         steps:
         - checkout
         - restore_cache:
@@ -56,7 +56,7 @@ jobs:
     publish:
         working_directory: ~/TypedEnv
         docker:
-        - image: cimg/node:16
+        - image: cimg/node:16.8
         steps:
         - checkout
         - restore_cache:
