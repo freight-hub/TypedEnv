@@ -2,7 +2,7 @@
 
 > Enforceable environment variable contracts at runtime.
 
-[![CircleCI](https://circleci.com/gh/freight-hub/TypedEnv/tree/master.svg?style=svg&circle-token=5222e58e326cb399a02aa2ed524dcf0dd817282e)](https://circleci.com/gh/freight-hub/TypedEnv/tree/master)
+[![CircleCI](https://circleci.com/gh/freight-hub/TypedEnv/tree/main.svg?style=svg&circle-token=5222e58e326cb399a02aa2ed524dcf0dd817282e)](https://circleci.com/gh/freight-hub/TypedEnv/tree/main)
 
 Use this library to make
 sure all the environment variables used in a project are valid.
