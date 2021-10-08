@@ -43,7 +43,7 @@
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.10",
     "@types/valid-url": "^1.0.2",
-    "jest": "~24.9.0",
+    "jest": "~27.2.4",
     "madge": "^5.0.1",
     "semver-compare": "^1.0.0",
     "ts-complexity": "0.0.3",
