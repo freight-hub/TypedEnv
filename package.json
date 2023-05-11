@@ -41,7 +41,7 @@
   "devDependencies": {
     "@types/deep-freeze": "^0.1.1",
     "@types/jest": "^27.0.1",
-    "@types/node": "^18.0.0",
+    "@types/node": "^20.1.2",
     "@types/valid-url": "^1.0.2",
     "jest": "~24.9.0",
     "madge": "^6.0.0",
