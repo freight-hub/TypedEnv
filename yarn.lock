@@ -2795,9 +2795,9 @@ lru-cache@^6.0.0:
     yallist "^4.0.0"
 
 madge@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/madge/-/madge-6.0.0.tgz#d17d68d1023376318cae89abd16629d329f4ed0a"
-  integrity sha512-dddxP62sj5pL+l9MJnq9C34VFqmRj+2+uSOdn/7lOTSliLRH0WyQ8uCEF3VxkPRNOBvMKK2xumnIE15HRSAL9A==
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/madge/-/madge-6.1.0.tgz#9835bb53f2e00d184914c2b007b50736a964d297"
+  integrity sha512-irWhT5RpFOc6lkzGHKLihonCVgM0YtfNUh4IrFeW3EqHpnt/JHUG3z26j8PeJEktCGB4tmGOOOJi1Rl/ACWucQ==
   dependencies:
     chalk "^4.1.1"
     commander "^7.2.0"
@@ -2820,7 +2820,6 @@ madge@^6.0.0:
     rc "^1.2.7"
     stream-to-array "^2.3.0"
     ts-graphviz "^1.5.0"
-    typescript "^3.9.5"
     walkdir "^0.4.1"
 
 make-dir@^1.3.0:
@@ -4396,7 +4395,7 @@ typescript@^2.6.1:
   version "2.9.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.9.2.tgz#1cbf61d05d6b96269244eb6a3bce4bd914e0f00c"
 
-typescript@^3.9.5, typescript@^3.9.7:
+typescript@^3.9.7:
   version "3.9.7"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.7.tgz#98d600a5ebdc38f40cb277522f12dc800e9e25fa"
   integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
